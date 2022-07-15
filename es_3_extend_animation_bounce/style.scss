@@ -1,0 +1,68 @@
+
+@function random-hex() {
+    $color: '#';
+
+    @for $i from 1 through 6 {
+        $carattere: random(16) - 1;
+
+        @if ($carattere > 9) {
+            $lettere: a,
+            b,
+            c,
+            d,
+            e,
+            f;
+            $carattere: calc($carattere - 9);
+            $carattere: nth($lettere, $carattere);
+        }
+
+        $color: $color + $carattere;
+    }
+
+    @return unquote($color);
+}
+
+
+
+$partenza:0px;
+$distanza:-30px;
+@keyframes bounce {
+0%,
+20%,
+50%,
+80%,
+100%
+{
+   transform: translateY($partenza);
+}
+40%{
+    transform: translateY($distanza);
+}
+
+60%{
+    transform: translateY(calc($distanza/2));
+}
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;   
+
+}
+
+.bg-random{
+    background-color: random-hex();
+}
+
+.bounce {
+    // background-image: linear-gradient(to top, rgb(0, 110, 255), rgb(89, 123, 236), rgb(0, 132, 255));
+    @extend .bg-random;
+    box-shadow: rgb(0, 174, 255) 1px 1px 20px 10px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    animation: bounce 1s infinite;
+    
+}

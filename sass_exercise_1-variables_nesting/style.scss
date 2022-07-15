@@ -1,0 +1,40 @@
+$cl-red: red;
+$cl-blue: blue;
+$cl-green: green;
+
+div {
+    border: $cl-red 1px solid;
+    width: fit-content;
+
+    h1 {
+        color: $cl-green;
+        text-decoration: underline $cl-blue;
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    section {
+        display: flex;
+        flex-direction: row;
+        margin: 5px;
+        padding: 5px;
+
+
+        article {
+            border: $cl-green 1px solid;
+            text-align: center;
+            font-size: 15px;
+            padding: 10px;            
+
+        }
+
+        article:nth-child(odd) {
+            color: $cl-blue;
+        }
+
+        article:nth-child(even) {
+            color: $cl-red;
+        }
+    }
+}
